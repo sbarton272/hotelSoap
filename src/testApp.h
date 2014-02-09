@@ -30,6 +30,8 @@ class testApp : public ofBaseApp{
         vector < ofPtr<ofxBox2dEdge> > edges;
         ofxBox2d box2d;
 
+        ofPtr<ofxBox2dRect> rect;
+
 		// country name, country capacity
         const string DATA_FILENAME = "countrySize.txt";
         const string CSV_SEPERATOR = "\t";

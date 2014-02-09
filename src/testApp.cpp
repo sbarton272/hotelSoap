@@ -17,34 +17,39 @@ void testApp::setup(){
 	// Box2d
 	box2d.init();
 	box2d.setGravity(0, 10);
+    box2d.createGround();
 	box2d.setFPS(30.0);
     box2d.registerGrabbing();
 
+    rect = ofPtr<ofxBox2dRect>(new ofxBox2dRect());
+    rect.get()->setPhysics(0.3, 0.5, 0.1);
+    rect.get()->setup( box2d.getWorld(), ofRectangle(100,100,10,10) );
+
     generateEdges();
 
-	// load soap image texture
-	texture.loadImage(TEXTURE_FILENAME);
+	// // load soap image texture
+	// texture.loadImage(TEXTURE_FILENAME);
 
-    // csv load and parse
-	csv.loadFile(ofToDataPath(DATA_FILENAME), CSV_SEPERATOR);
+ //    // csv load and parse
+	// csv.loadFile(ofToDataPath(DATA_FILENAME), CSV_SEPERATOR);
 
-	// populate data vector
-	for(int i=0; i < 1; i++) { //csv.numRows
+	// // populate data vector
+	// for(int i=0; i < 3; i++) { //csv.numRows
 
-		string countryName = csv.getString(i, 0);
-		float capacity = 100000;//csv.getFloat(i, 1);
+	// 	string countryName = csv.getString(i, 0);
+	// 	float capacity = 100000;//csv.getFloat(i, 1);
 
-        cout << countryName << ": " << ofToString(capacity)<< endl;
+ //        cout << countryName << ": " << ofToString(capacity)<< endl;
 
-		// generate rectangle bar of soap
-		ofPtr<SoapBar> soapBar = ofPtr<SoapBar>(new SoapBar(countryName, capacity));
-		soapBars.push_back(soapBar);
-		soapBars.back().get()->setPhysics(BOX_DENSITY, BOX_BOUNCE, BOX_FRICTION);
-		soapBars.back().get()->setTexture(&texture);
-		soapBars.back().get()->setup(box2d);
+	// 	// generate rectangle bar of soap
+	// 	ofPtr<SoapBar> soapBar = ofPtr<SoapBar>(new SoapBar(countryName, capacity));
+	// 	soapBars.push_back(soapBar);
+	// 	soapBars.back().get()->setPhysics(BOX_DENSITY, BOX_BOUNCE, BOX_FRICTION);
+	// 	soapBars.back().get()->setTexture(&texture);
+	// 	soapBars.back().get()->setup(box2d);
 
 
-	}
+	// }
 
 	cout << "Done loading" << endl;
 
@@ -66,9 +71,11 @@ void testApp::draw(){
 	}
 
     ofSetColor(255,255,255);
-	for (int i=0; i < soapBars.size(); i++) {
-        soapBars[i].get()->draw();
-    }
+	// for (int i=0; i < soapBars.size(); i++) {
+ //        soapBars[i].get()->draw();
+ //    }
+
+    rect.get()->draw();
 
 
 }
@@ -138,15 +145,10 @@ void testApp::generateEdges(){
 	topEdge.get()->setPhysics(-1, 0, 0); // immovable
 	topEdge.get()->create( box2d.getWorld() );
 
-	ofPtr<ofxBox2dEdge> bottomEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
-	bottomEdge.get()->addVertex( ofGetWidth(), ofGetHeight() );
-	bottomEdge.get()->addVertex( 0, ofGetHeight() );
-	bottomEdge.get()->setPhysics(-1, 0, 0); // immovable
-	bottomEdge.get()->create( box2d.getWorld() );
+    box2d.createGround();
 
 	edges.push_back(rightEdge);
 	edges.push_back(leftEdge);
 	edges.push_back(topEdge);
-	edges.push_back(bottomEdge);
 
 }
