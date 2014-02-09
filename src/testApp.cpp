@@ -17,29 +17,10 @@ void testApp::setup(){
 	// Box2d
 	box2d.init();
 	box2d.setGravity(0, 10);
-	box2d.createGround();
 	box2d.setFPS(30.0);
     box2d.registerGrabbing(); // TODO needed?
 
-    // add edges at sides of screen
-    ofPtr<ofxBox2dEdge> rightEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
-	rightEdge.get()->addVertex( ofGetWidth(), ofGetHeight() );
-	rightEdge.get()->addVertex( ofGetWidth(), 0 );
-	rightEdge.get()->create( box2d.getWorld() );
-
-    ofPtr<ofxBox2dEdge> leftEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
-	leftEdge.get()->addVertex( 0, ofGetHeight() );
-	leftEdge.get()->addVertex( 0, 0 );
-	leftEdge.get()->create( box2d.getWorld() );
-
-    ofPtr<ofxBox2dEdge> topEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
-	topEdge.get()->addVertex( ofGetWidth(), 0 );
-	topEdge.get()->addVertex( 0, 0 );
-	topEdge.get()->create(box2d.getWorld());
-
-	edges.push_back(rightEdge);
-	edges.push_back(leftEdge);
-	edges.push_back(topEdge);
+    generateEdges();
 
 	// load soap image texture
 	texture.loadImage(TEXTURE_FILENAME);
@@ -121,7 +102,7 @@ void testApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::windowResized(int w, int h){
-	// TODO redraw constraints
+	generateEdges();
 }
 
 //--------------------------------------------------------------
@@ -129,51 +110,36 @@ void testApp::dragEvent(ofDragInfo dragInfo){
 
 }
 
-
-//  Started from by Todd Vanderlin's TextureShape.h (7/16/13).
-//  https://github.com/vanderlin/ofxBox2d/blob/c09ea8796647a3b162de677f498f5fe26b8b5a3d/example-ShapeTexturing/src/TextureShape.h
-
 //--------------------------------------------------------------
-SoapBar::SoapBar(string name, float cap) {
-    texturePtr = NULL;
-    countryName = name;
-    capacity = cap;
-}
+void testApp::generateEdges(){
 
-//--------------------------------------------------------------
-void SoapBar::setup(ofxBox2d &world) {
+	// empty edges to repopulate
+	edges.clear();
 
+    // add edges at sides of screen
+    ofPtr<ofxBox2dEdge> rightEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
+	rightEdge.get()->addVertex( ofGetWidth(), ofGetHeight() );
+	rightEdge.get()->addVertex( ofGetWidth(), 0 );
+	rightEdge.get()->create( box2d.getWorld() );
 
-	// random starting locations
-	float x = ofRandom(0, ofGetWidth());
-	float y = ofRandom(0, ofGetHeight()/2);
-	// capacity maps to area, so take sqrt of capacity
-	float l = SOAP_BAR_SIZE * sqrt( capacity / MAX_CAPACITY );
-	float w = GOLDEN_RATIO*l;
-	float h = l/GOLDEN_RATIO;
+    ofPtr<ofxBox2dEdge> leftEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
+	leftEdge.get()->addVertex( 0, ofGetHeight() );
+	leftEdge.get()->addVertex( 0, 0 );
+	leftEdge.get()->create( box2d.getWorld() );
 
-	rect = ofxBox2dRect();
-    rect.setup( world.getWorld(), ofRectangle(x,y,w,h) );
+    ofPtr<ofxBox2dEdge> topEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
+	topEdge.get()->addVertex( ofGetWidth(), 0 );
+	topEdge.get()->addVertex( 0, 0 );
+	topEdge.get()->create(box2d.getWorld());
 
-}
+	ofPtr<ofxBox2dEdge> bottomEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
+	topEdge.get()->addVertex( ofGetWidth(), ofGetHeight() );
+	topEdge.get()->addVertex( 0, ofGetHeight() );
+	topEdge.get()->create(box2d.getWorld());
 
-//--------------------------------------------------------------
-void SoapBar::setPhysics(float density, float bounce, float friction) {
-    rect.setPhysics(density, bounce, friction);
-}
-
-//--------------------------------------------------------------
-void SoapBar::setTexture(ofImage * texture) {
-    texturePtr = texture;
-    texturePtr->getTextureReference().setTextureMinMagFilter(GL_NEAREST, GL_NEAREST); // TODO rescaling
-}
-
-//--------------------------------------------------------------
-void SoapBar::draw() {
-
-    // display mesh with texture
-    texturePtr->bind();
-    rect.draw();
-    texturePtr->unbind();
+	edges.push_back(rightEdge);
+	edges.push_back(leftEdge);
+	edges.push_back(topEdge);
+	edges.push_back(bottomEdge);
 
 }

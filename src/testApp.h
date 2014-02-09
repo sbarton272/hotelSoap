@@ -22,6 +22,7 @@ class testApp : public ofBaseApp{
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
+		void generateEdges();
 
         ofxCsv csv;
         ofImage texture;

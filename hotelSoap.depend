@@ -2171,16 +2171,19 @@
 	"ofMain.h"
 	"testApp.h"
 
-1391964247 c:\program files (x86)\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\hotelsoap\src\testapp.h
+1391965274 c:\program files (x86)\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\hotelsoap\src\testapp.h
 	"ofMain.h"
 	"ofxCsv.h"
 	"ofxBox2d.h"
 	"SoapBar.h"
 
-1391964344 source:c:\program files (x86)\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\hotelsoap\src\testapp.cpp
+1391964606 source:c:\program files (x86)\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\hotelsoap\src\testapp.cpp
 	"testApp.h"
 
 1391964508 c:\program files (x86)\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\hotelsoap\src\soapbar.h
 	"ofMain.h"
 	"ofxBox2d.h"
+
+1391964605 source:c:\program files (x86)\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\hotelsoap\src\soapbar.cpp
+	"SoapBar.h"
 
