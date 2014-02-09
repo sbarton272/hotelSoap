@@ -22,7 +22,7 @@ public:
 
 private:
 
-    ofImage*            texturePtr;
+    ofImage             texture;
     ofPtr<ofxBox2dRect> rect;
     string              countryName;
     float               capacity;

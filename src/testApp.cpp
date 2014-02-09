@@ -12,7 +12,7 @@ void testApp::setup(){
 	ofBackgroundHex(0); // black
 	ofSetLogLevel(OF_LOG_NOTICE);
 	ofSetVerticalSync(true);
-	ofDisableAntiAliasing();
+	//ofDisableAntiAliasing();
 
 	// Box2d
 	box2d.init();
@@ -25,11 +25,7 @@ void testApp::setup(){
     testRect.get()->setPhysics(0.3, 0.5, 0.1);
     testRect.get()->setup( box2d.getWorld(), ofRectangle(100,100,10,10) );
 
-	cout << ofToString(box2d.getBodyCount()) << endl;
-
     generateEdges();
-
-	cout << ofToString(box2d.getBodyCount()) << endl;
 
 	// load soap image texture
 	texture.loadImage(TEXTURE_FILENAME);
@@ -44,7 +40,6 @@ void testApp::setup(){
 		float capacity = csv.getFloat(i, 1);
 
         cout << countryName << ": " << ofToString(capacity)<< endl;
-        cout << ofToString(box2d.getBodyCount()) << endl;
 
 		// generate rectangle bar of soap
 		ofPtr<SoapBar> soapBar = ofPtr<SoapBar>(new SoapBar(countryName, capacity));
@@ -54,8 +49,8 @@ void testApp::setup(){
 		soapBars.back().get()->setup(box2d.getWorld());
 
 	}
-	cout << ofToString(box2d.getBodyCount()) << endl;
-	cout << "Done loading" << endl;
+
+	cout << "Done loading: " << ofToString(box2d.getBodyCount()) << endl;
 
 }
 

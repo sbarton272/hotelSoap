@@ -39,7 +39,7 @@ class testApp : public ofBaseApp{
                 const string DATA_FILENAME = "countrySize.txt";
                 const string CSV_SEPERATOR = "\t";
 
-                const string TEXTURE_FILENAME = "barSoap.jpg";
+                const string TEXTURE_FILENAME = "barSoap.png";
 
                 const float BOX_DENSITY = 3.0;
                 const float BOX_BOUNCE = 0.5;
