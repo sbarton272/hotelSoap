@@ -18,10 +18,7 @@ void testApp::setup(){
 	box2d.init();
 	box2d.setGravity(0, 10);
 	box2d.setFPS(30.0);
-    box2d.registerGrabbing(); // TODO needed?
-
-    ofxBox2dRect rect = ofxBox2dRect();
-    rect.setup( box2d.getWorld(), ofRectangle(0,0,0,0) );
+    box2d.registerGrabbing();
 
     generateEdges();
 
@@ -35,7 +32,9 @@ void testApp::setup(){
 	for(int i=0; i < 1; i++) { //csv.numRows
 
 		string countryName = csv.getString(i, 0);
-		float capacity = csv.getFloat(i, 1);
+		float capacity = 100000;//csv.getFloat(i, 1);
+
+        cout << countryName << ": " << ofToString(capacity)<< endl;
 
 		// generate rectangle bar of soap
 		ofPtr<SoapBar> soapBar = ofPtr<SoapBar>(new SoapBar(countryName, capacity));
@@ -63,7 +62,7 @@ void testApp::draw(){
 
 	ofSetColor(0);
 	for (int i=0; i < edges.size(); i++) {
-		edges[i].get()->draw();
+		//edges[i].get()->draw();
 	}
 
     ofSetColor(255,255,255);
@@ -124,22 +123,26 @@ void testApp::generateEdges(){
     ofPtr<ofxBox2dEdge> rightEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
 	rightEdge.get()->addVertex( ofGetWidth(), ofGetHeight() );
 	rightEdge.get()->addVertex( ofGetWidth(), 0 );
+	rightEdge.get()->setPhysics(-1, 0, 0); // immovable
 	rightEdge.get()->create( box2d.getWorld() );
 
     ofPtr<ofxBox2dEdge> leftEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
 	leftEdge.get()->addVertex( 0, ofGetHeight() );
 	leftEdge.get()->addVertex( 0, 0 );
+	leftEdge.get()->setPhysics(-1, 0, 0); // immovable
 	leftEdge.get()->create( box2d.getWorld() );
 
     ofPtr<ofxBox2dEdge> topEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
 	topEdge.get()->addVertex( ofGetWidth(), 0 );
 	topEdge.get()->addVertex( 0, 0 );
+	topEdge.get()->setPhysics(-1, 0, 0); // immovable
 	topEdge.get()->create( box2d.getWorld() );
 
 	ofPtr<ofxBox2dEdge> bottomEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
-	topEdge.get()->addVertex( ofGetWidth(), ofGetHeight() );
-	topEdge.get()->addVertex( 0, ofGetHeight() );
-	topEdge.get()->create( box2d.getWorld() );
+	bottomEdge.get()->addVertex( ofGetWidth(), ofGetHeight() );
+	bottomEdge.get()->addVertex( 0, ofGetHeight() );
+	bottomEdge.get()->setPhysics(-1, 0, 0); // immovable
+	bottomEdge.get()->create( box2d.getWorld() );
 
 	edges.push_back(rightEdge);
 	edges.push_back(leftEdge);

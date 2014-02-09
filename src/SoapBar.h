@@ -13,11 +13,10 @@ class SoapBar {
 
 public:
 
-    ofImage*        texturePtr;
-    ofMesh          mesh;
-    ofxBox2dRect    rect;
-    string          countryName;
-    float           capacity;
+    ofImage*            texturePtr;
+    ofPtr<ofxBox2dRect> rect;
+    string              countryName;
+    float               capacity;
 
     SoapBar(string name, float cap);
 
@@ -25,6 +24,5 @@ public:
     void setPhysics(float density, float bounce, float friction);
     void setTexture(ofImage * texture);
     void draw();
-    void update();
 
 };
