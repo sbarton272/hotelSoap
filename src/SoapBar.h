@@ -21,9 +21,10 @@ public:
 
     SoapBar(string name, float cap);
 
-    void setup(ofxBox2d &world);
+    void setup(ofxBox2d world);
     void setPhysics(float density, float bounce, float friction);
     void setTexture(ofImage * texture);
     void draw();
+    void update();
 
 };

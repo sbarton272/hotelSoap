@@ -20,6 +20,9 @@ void testApp::setup(){
 	box2d.setFPS(30.0);
     box2d.registerGrabbing(); // TODO needed?
 
+    ofxBox2dRect rect = ofxBox2dRect();
+    rect.setup( box2d.getWorld(), ofRectangle(0,0,0,0) );
+
     generateEdges();
 
 	// load soap image texture
@@ -29,17 +32,18 @@ void testApp::setup(){
 	csv.loadFile(ofToDataPath(DATA_FILENAME), CSV_SEPERATOR);
 
 	// populate data vector
-	for(int i=0; i < csv.numRows; i++) {
+	for(int i=0; i < 1; i++) { //csv.numRows
 
 		string countryName = csv.getString(i, 0);
 		float capacity = csv.getFloat(i, 1);
 
 		// generate rectangle bar of soap
 		ofPtr<SoapBar> soapBar = ofPtr<SoapBar>(new SoapBar(countryName, capacity));
-		soapBar.get()->setPhysics(BOX_DENSITY, BOX_BOUNCE, BOX_FRICTION);
-		soapBar.get()->setTexture(&texture);
-		soapBar.get()->setup(box2d);
 		soapBars.push_back(soapBar);
+		soapBars.back().get()->setPhysics(BOX_DENSITY, BOX_BOUNCE, BOX_FRICTION);
+		soapBars.back().get()->setTexture(&texture);
+		soapBars.back().get()->setup(box2d);
+
 
 	}
 
@@ -130,12 +134,12 @@ void testApp::generateEdges(){
     ofPtr<ofxBox2dEdge> topEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
 	topEdge.get()->addVertex( ofGetWidth(), 0 );
 	topEdge.get()->addVertex( 0, 0 );
-	topEdge.get()->create(box2d.getWorld());
+	topEdge.get()->create( box2d.getWorld() );
 
 	ofPtr<ofxBox2dEdge> bottomEdge = ofPtr<ofxBox2dEdge>(new ofxBox2dEdge);
 	topEdge.get()->addVertex( ofGetWidth(), ofGetHeight() );
 	topEdge.get()->addVertex( 0, ofGetHeight() );
-	topEdge.get()->create(box2d.getWorld());
+	topEdge.get()->create( box2d.getWorld() );
 
 	edges.push_back(rightEdge);
 	edges.push_back(leftEdge);
