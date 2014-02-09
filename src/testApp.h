@@ -22,24 +22,27 @@ class testApp : public ofBaseApp{
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
-		void generateEdges();
 
-        ofxCsv csv;
-        ofImage texture;
-        vector < ofPtr<SoapBar> > soapBars;
-        vector < ofPtr<ofxBox2dEdge> > edges;
-        ofxBox2d box2d;
+        private:
 
-        ofPtr<ofxBox2dRect> rect;
+                void generateEdges();
 
-		// country name, country capacity
-        const string DATA_FILENAME = "countrySize.txt";
-        const string CSV_SEPERATOR = "\t";
+                ofxCsv csv;
+                ofImage texture;
+                vector < ofPtr<SoapBar> > soapBars;
+                vector < ofPtr<ofxBox2dEdge> > edges;
+                ofxBox2d box2d;
 
-        const string TEXTURE_FILENAME = "barSoap.jpg";
+                ofPtr<ofxBox2dRect> testRect;
 
-        const float BOX_DENSITY = 3.0;
-        const float BOX_BOUNCE = 0.5;
-        const float BOX_FRICTION = 0.1;
+        	// country name, country capacity
+                const string DATA_FILENAME = "countrySize.txt";
+                const string CSV_SEPERATOR = "\t";
+
+                const string TEXTURE_FILENAME = "barSoap.jpg";
+
+                const float BOX_DENSITY = 3.0;
+                const float BOX_BOUNCE = 0.5;
+                const float BOX_FRICTION = 0.1;
 
 };

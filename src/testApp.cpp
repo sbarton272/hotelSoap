@@ -21,36 +21,40 @@ void testApp::setup(){
 	box2d.setFPS(30.0);
     box2d.registerGrabbing();
 
-    rect = ofPtr<ofxBox2dRect>(new ofxBox2dRect());
-    rect.get()->setPhysics(0.3, 0.5, 0.1);
-    rect.get()->setup( box2d.getWorld(), ofRectangle(100,100,10,10) );
+    testRect = ofPtr<ofxBox2dRect>(new ofxBox2dRect());
+    testRect.get()->setPhysics(0.3, 0.5, 0.1);
+    testRect.get()->setup( box2d.getWorld(), ofRectangle(100,100,10,10) );
+
+	cout << ofToString(box2d.getBodyCount()) << endl;
 
     generateEdges();
 
-	// // load soap image texture
-	// texture.loadImage(TEXTURE_FILENAME);
+	cout << ofToString(box2d.getBodyCount()) << endl;
 
- //    // csv load and parse
-	// csv.loadFile(ofToDataPath(DATA_FILENAME), CSV_SEPERATOR);
+	// load soap image texture
+	texture.loadImage(TEXTURE_FILENAME);
 
-	// // populate data vector
-	// for(int i=0; i < 3; i++) { //csv.numRows
+    // csv load and parse
+	csv.loadFile(ofToDataPath(DATA_FILENAME), CSV_SEPERATOR);
 
-	// 	string countryName = csv.getString(i, 0);
-	// 	float capacity = 100000;//csv.getFloat(i, 1);
+	// populate data vector
+	for(int i=0; i < csv.numRows; i++) {
 
- //        cout << countryName << ": " << ofToString(capacity)<< endl;
+		string countryName = csv.getString(i, 0);
+		float capacity = csv.getFloat(i, 1);
 
-	// 	// generate rectangle bar of soap
-	// 	ofPtr<SoapBar> soapBar = ofPtr<SoapBar>(new SoapBar(countryName, capacity));
-	// 	soapBars.push_back(soapBar);
-	// 	soapBars.back().get()->setPhysics(BOX_DENSITY, BOX_BOUNCE, BOX_FRICTION);
-	// 	soapBars.back().get()->setTexture(&texture);
-	// 	soapBars.back().get()->setup(box2d);
+        cout << countryName << ": " << ofToString(capacity)<< endl;
+        cout << ofToString(box2d.getBodyCount()) << endl;
 
+		// generate rectangle bar of soap
+		ofPtr<SoapBar> soapBar = ofPtr<SoapBar>(new SoapBar(countryName, capacity));
+		soapBars.push_back(soapBar);
+		soapBars.back().get()->setPhysics(BOX_DENSITY, BOX_BOUNCE, BOX_FRICTION);
+		soapBars.back().get()->setTexture(&texture);
+		soapBars.back().get()->setup(box2d.getWorld());
 
-	// }
-
+	}
+	cout << ofToString(box2d.getBodyCount()) << endl;
 	cout << "Done loading" << endl;
 
 }
@@ -60,23 +64,20 @@ void testApp::update(){
 
 	box2d.update();
 
+	//cout << ofToString(box2d.getBodyCount()) << endl;
+
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
 
-	ofSetColor(0);
-	for (int i=0; i < edges.size(); i++) {
-		//edges[i].get()->draw();
-	}
-
     ofSetColor(255,255,255);
-	// for (int i=0; i < soapBars.size(); i++) {
- //        soapBars[i].get()->draw();
- //    }
+	for (int i=0; i < soapBars.size(); i++) {
+        soapBars[i].get()->draw();
+    }
 
-    rect.get()->draw();
-
+    ofSetColor(255,255,0);
+    // testRect.get()->draw();
 
 }
 
