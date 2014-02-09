@@ -5,6 +5,10 @@
 #include "ofMain.h"
 #include "ofxBox2d.h"
 
+#define GOLDEN_RATIO    1.61803398875
+#define SOAP_BAR_SIZE   100.0
+#define MAX_CAPACITY    4480838.0
+
 class SoapBar {
 
 public:
@@ -12,10 +16,12 @@ public:
     ofImage*        texturePtr;
     ofMesh          mesh;
     ofxBox2dRect    rect;
+    string          countryName;
+    float           capacity;
 
-    SoapBar();
+    SoapBar(string name, float cap);
 
-    void setup(b2World * world, ofRectangle r, string countryName, float capacity);
+    void setup(ofxBox2d &world);
     void setPhysics(float density, float bounce, float friction);
     void setTexture(ofImage * texture);
     void draw();

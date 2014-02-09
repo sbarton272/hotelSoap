@@ -3,32 +3,9 @@
 #include "ofMain.h"
 #include "ofxCsv.h"
 #include "ofxBox2d.h"
-//#include "SoapBar.h"
+#include "SoapBar.h"
 
 using namespace wng;
-
-class SoapBar {
-
-public:
-
-    ofImage*        texturePtr;
-    ofMesh          mesh;
-    ofxBox2dRect    rect;
-    string          countryName;
-    float           capacity;
-
-    SoapBar(string name, float cap);
-
-    void setup(ofxBox2d &world);
-    void setPhysics(float density, float bounce, float friction);
-    void setTexture(ofImage * texture);
-    void draw();
-
-    const float GOLDEN_RATIO = 1.61803398875;
-    const float SOAP_BAR_SIZE = 100;
-    const float MAX_CAPACITY = 4480838;
-
-};
 
 class testApp : public ofBaseApp{
 

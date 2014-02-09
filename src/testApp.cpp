@@ -56,7 +56,7 @@ void testApp::setup(){
 		// generate rectangle bar of soap
 		ofPtr<SoapBar> soapBar = ofPtr<SoapBar>(new SoapBar(countryName, capacity));
 		soapBar.get()->setPhysics(BOX_DENSITY, BOX_BOUNCE, BOX_FRICTION);
-		//s.soapBar.get()->setTexture(texture);
+		soapBar.get()->setTexture(&texture);
 		soapBar.get()->setup(box2d);
 		soapBars.push_back(soapBar);
 
