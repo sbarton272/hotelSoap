@@ -1,0 +1,266 @@
+Tuvalu	42
+Salt Cay	59
+Little Cayman	74
+South Caicos	77
+Jost Van Dyke	100
+Sudan	117
+Anegada	117
+Long Island	117
+Cat Island	118
+Cayman Brac	126
+Brunei Darussalam	136
+Bequia	144
+Chad	150
+Manila	150
+Western Sahara	150
+Central African Republic	161
+Andros	180
+Grand Turk	194
+Virgin Gorda	204
+Great Exuma	210
+Harbour Island	230
+Nevis	230
+Saint Helena	245
+Liberia	250
+Montserrat	255
+Togo	265
+Bimini	284
+San Salvador	298
+American Samoa	300
+St. Vincent	312
+Tokelau	325
+Eleuthera	330
+Republic of Kiribati	344
+Côte d’Ivoire	350
+Djibouti	350
+Great Abaco Island	399
+Saint Pierre and Miquelon	402
+Democratic Republic of the Congo	450
+Mayotte	450
+Grand Bahama Island	576
+Faroe Islands	587
+Guinea	601
+French Guiana	662
+St. Kitts	673
+Marshall Islands	692
+Tortola	705
+Saint Vincent And The Grenadines	729
+Kyrgyzstan	735
+México	750
+Macau	750
+Virgin Islands British	756
+Equatorial Guinea	800
+East Timor	816
+Burundi	836
+Turkmenistan	842
+Afghanistan	889
+Niger	897
+Swaziland	927
+Solomon Islands	935
+Uganda	950
+Norfolk Island	960
+Gibraltar	973
+Saint Kitts and Nevis	997
+Gabon	1000
+Guyana	1015
+Benin	1050
+Palestinian Territory	1152
+Tajikistan	1159
+Isle of Man	1242
+Bonaire Saint Eustatius and Saba	1250
+Kosovo	1262
+Republic of the Congo	1317
+San Marino	1382
+Burkina Faso	1400
+Saint Martin	1400
+Palestine	1401
+Providenciales	1403
+Grand Cayman	1413
+Lesotho	1517
+Brunei	1521
+Rwanda	1528
+Kyrgyz Republic	1556
+Tonga	1560
+Reunion	1623
+New Providence Island	1648
+New Caledonia	1650
+Anguilla	1655
+Reunion Island	1730
+Papua New Guinea	1752
+Yemen	1763
+Sint Maarten	1800
+North Korea	1810
+Samoa	1861
+Dominica	1978
+Greenland	2066
+Gambia	2141
+Palau	2170
+Tobago	2362
+Suriname	2404
+Trinidad	2426
+Antigua	2431
+Curacao	2433
+Liechtenstein	2466
+Macedonia [FYROM]	2500
+Libya	2524
+Northern Mariana Islands	2579
+Malawi	2714
+Cayman Islands	2722
+Curaçao	2781
+Cameroon	2800
+Vanuatu	2800
+Botswana	2804
+Zambia	2848
+Haiti	2951
+St. Lucia	2976
+Virgin Islands U.S.	3000
+Guam	3050
+Trinidad and Tobago	3205
+Mongolia	3291
+Angola	3296
+Pakistan	3300
+Bhutan	3364
+Bermuda	3391
+Monaco	3452
+Turks and Caicos Islands	3595
+Mali	3610
+Saint Lucia	3658
+Antigua And Barbuda	3658
+Grenada	3893
+Jersey	4292
+French Polynesia	4506
+Cook Islands	4727
+Armenia	5077
+Uzbekistan	5178
+Martinique	5463
+Mozambique	5501
+Zimbabwe	5611
+Namibia	5811
+Belarus	5826
+Madagascar	6110
+Republic of Macedonia	6137
+El Salvador	6284
+Iran	6341
+Seychelles	6350
+Moldova	6391
+Kuwait	6540
+Paraguay	6939
+Bangladesh	6971
+Azerbaijan	7189
+Georgia	7212
+Honduras	7366
+Cape Verde	7379
+Mariana Islands	7566
+Senegal	7650
+Algeria	7749
+Guadeloupe	8203
+Myanmar	8223
+Northern Ireland	8268
+Lebanon	8700
+Nicaragua	8805
+Belize	8911
+Fiji	9230
+Aruba	9374
+Nigeria	9793
+Macedonia	9848
+Ethiopia	10244
+Kazakhstan	10309
+Oman	10516
+Syria	10526
+Barbados	10662
+Guatemala	11062
+Bosnia and Herzegovina	11300
+Panama	11328
+Albania	11931
+Bolivia	12160
+Venezuela	12340
+Bahrain	12656
+Bahamas	13015
+Kenya	15709
+Tanzania	16344
+Luxembourg	16437
+Iceland	16450
+Ghana	16715
+Malta	16850
+Qatar	17763
+Singapore	18150
+Nepal	20823
+Uruguay	21399
+Laos	21785
+Wales	22410
+Serbia	23651
+Montenegro	24589
+Maldives	24904
+Puerto Rico	24964
+Ecuador	25223
+Lithuania	26600
+Mauritius	26605
+Latvia	28346
+Jordan	28682
+Andorra	29744
+Tunisia	33586
+Jamaica	34310
+Estonia	34313
+Sri Lanka	34472
+Scotland	37827
+Cyprus	38640
+Slovenia	39465
+Ukraine	44431
+The Netherlands	45194
+Cambodia	51761
+Saudi Arabia	53591
+Finland	53800
+Israel	54559
+Peru	54745
+Taiwan	57850
+Hong Kong	58618
+Slovakia	59372
+Chile	59943
+Colombia	66630
+Cuba	67203
+Costa Rica	75241
+Denmark	79234
+Dominican Republic	85324
+Morocco	98495
+South Korea	99637
+Vietnam	109282
+United Arab Emirates	120388
+New Zealand	121511
+Norway	122072
+Philippines	131493
+Egypt	140042
+Romania	144537
+Belgium	149629
+Hungary	151416
+Malaysia	157931
+Bulgaria	160183
+Ireland	164406
+Sweden	168691
+Czech Republic	172537
+Argentina	173402
+Netherlands	196466
+Croatia	198270
+South Africa	203800
+Russia	205117
+Portugal	244578
+Poland	259108
+Brazil	262500
+Japan	272350
+Mexico	277278
+Indonesia	303133
+Switzerland	312699
+England	325361
+Australia	348614
+Turkey	493611
+Greece	495919
+Canada	556496
+India	604581
+Thailand	607241
+Austria	611136
+United Kingdom	1211686
+China	1220539
+Spain	1331539
+Germany	1471708
+France	1649042
+Italy	2267010
+United States	4480838

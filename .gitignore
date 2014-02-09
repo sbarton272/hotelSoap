@@ -11,3 +11,10 @@
 *.lai
 *.la
 *.a
+
+obj
+*.dll
+*.xlsx
+*.exe
+*.rc
+.gitkeep
