@@ -86,21 +86,11 @@ void testApp::draw(){
 		// mouse pos has been rotated enough for these tests to see if inside rect:
 		// There is probably a much much better way to do this but whatever.
 
-        // for testing
-		if( b->countryName == "United States" ) {
-			ofSetColor(255,0,255);
-			ofCircle(normMouse.x, normMouse.y, 10);
-			ofCircle(v.x, v.y, 10);
-			ofSetColor(255,0,0);
-			ofCircle(0, 0, 10);
-			ofCircle(b->width, b->height, 10);
-		}
-
         if( (normMouse.x >= 0) && (normMouse.x <= b->width) &&
         	(normMouse.y >= 0) && (normMouse.y <= b->height) )  {
         	// mouse is pointing inside rect
         	cout << "Mouse over: " << b->countryName << endl;
-        	countryInfo += b->countryName + " uses approximately " + ofToString(b->capacity * LBS_BAR) + "lbs of soap daily";
+        	countryInfo += b->countryName + " uses approximately " + ofToString(b->capacity * LBS_BAR) + " lbs of soap daily";
         }
     }
 
