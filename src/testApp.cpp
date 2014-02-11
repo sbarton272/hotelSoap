@@ -64,8 +64,47 @@ void testApp::draw(){
 
     ofSetColor(255,255,255);
 	for (int i=0; i < soapBars.size(); i++) {
-        soapBars[i].get()->draw();
+        SoapBar* b = soapBars[i].get();
+        b->draw();
+
+        // determine if mouse is over bar (couldn't get events to work)
+        ofVec2f v = b->rect.get()->getPosition();
+        // normalize position to bring origin to corner of box
+        float x = mouseX - v.x;
+        float y = mouseY - v.y;
+        // store mouse loc relative to rect
+        ofVec2f normMouse = ofVec2f(x,y);
+        // calculate rotation of rect
+        ofVec2f x_axis(1,0);
+		float angle = v.angleRad(x_axis);
+		// rotate mouse pos back by the rotation
+		normMouse.rotateRad( -angle );
+		// mouse pos has been rotated enough for these tests to see if inside rect:
+		// There is probably a much much better way to do this but whatever.
+
+		if( b->countryName == "United States" ) {
+			ofColor(255,0,255);
+			ofCircle(normMouse.x, normMouse.y, 1);
+			ofColor(255,0,0);
+			ofCircle(0, 0, 1);
+			ofCircle(b->width, b->height, 1);
+		}
+
+        if( (normMouse.x >= 0) && (normMouse.x <= b->width) &&
+        	(normMouse.y >= 0) && (normMouse.y <= b->height) )  {
+        	// mouse is pointing inside rect
+        	cout << b->countryName << ofToString(soapBars[i].get()->rect.get()->getPosition()) << endl;
+        	cout << "Mouse: " << ofToString(mouseX) << ", " << ofToString(mouseY) << endl;
+        }
     }
+
+	string info = "";
+	info += "Every day hotels worldwide replace the soap in their bathrooms.\n";
+	info += "The bars of soap below are proportional in area to the soup replaced by country.\n";
+	info += "Approximatively " + ofToString(WORLD_CAPACITY * LBS_BAR) + " lbs of soap used worldwide daily.";
+
+	ofSetHexColor(0xF1F1FD);
+	ofDrawBitmapString(info, 30, 30);
 
 }
 

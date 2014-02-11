@@ -3,6 +3,7 @@
 
 #include "SoapBar.h"
 
+
 //--------------------------------------------------------------
 SoapBar::SoapBar(string name, float cap) {
     countryName = name;
@@ -17,6 +18,7 @@ SoapBar::SoapBar(string name, float cap) {
     this->height = h;
 
 }
+
 
 //--------------------------------------------------------------
 void SoapBar::setup(b2World* world) {

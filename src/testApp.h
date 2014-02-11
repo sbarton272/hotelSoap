@@ -5,6 +5,10 @@
 #include "ofxBox2d.h"
 #include "SoapBar.h"
 
+#define LBS_BAR .225
+#define WORLD_CAPACITY 25075286
+
+
 using namespace wng;
 
 class testApp : public ofBaseApp{
@@ -41,7 +45,7 @@ class testApp : public ofBaseApp{
 
                 const string TEXTURE_FILENAME = "barSoap.png";
 
-                const float BOX_DENSITY = 3.0;
+                const float BOX_DENSITY = .3;
                 const float BOX_BOUNCE = 0.5;
                 const float BOX_FRICTION = 0.1;
 

@@ -15,13 +15,11 @@ class SoapBar {
 public:
 
     SoapBar(string name, float cap);
-
+	
     void setup(b2World* world);
     void setPhysics(float density, float bounce, float friction);
     void setTexture(ofImage * tex);
     void draw();
-
-private:
 
     ofImage             texture;
     ofPtr<ofxBox2dRect> rect;
