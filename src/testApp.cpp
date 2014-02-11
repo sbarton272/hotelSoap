@@ -62,6 +62,8 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 
+	string countryInfo = "";
+
     ofSetColor(255,255,255);
 	for (int i=0; i < soapBars.size(); i++) {
         SoapBar* b = soapBars[i].get();
@@ -75,33 +77,38 @@ void testApp::draw(){
         // store mouse loc relative to rect
         ofVec2f normMouse = ofVec2f(x,y);
         // calculate rotation of rect
-        ofVec2f x_axis(1,0);
-		float angle = v.angleRad(x_axis);
+		float angle = b->rect.get()->getRotation();
 		// rotate mouse pos back by the rotation
-		normMouse.rotateRad( -angle );
+		normMouse.rotate( -angle );
+		// normalize mouse to pos value if inside
+		normMouse.x = normMouse.x + b->width/2;
+		normMouse.y = normMouse.y + b->height/2;
 		// mouse pos has been rotated enough for these tests to see if inside rect:
 		// There is probably a much much better way to do this but whatever.
 
+        // for testing
 		if( b->countryName == "United States" ) {
-			ofColor(255,0,255);
-			ofCircle(normMouse.x, normMouse.y, 1);
-			ofColor(255,0,0);
-			ofCircle(0, 0, 1);
-			ofCircle(b->width, b->height, 1);
+			ofSetColor(255,0,255);
+			ofCircle(normMouse.x, normMouse.y, 10);
+			ofCircle(v.x, v.y, 10);
+			ofSetColor(255,0,0);
+			ofCircle(0, 0, 10);
+			ofCircle(b->width, b->height, 10);
 		}
 
         if( (normMouse.x >= 0) && (normMouse.x <= b->width) &&
         	(normMouse.y >= 0) && (normMouse.y <= b->height) )  {
         	// mouse is pointing inside rect
-        	cout << b->countryName << ofToString(soapBars[i].get()->rect.get()->getPosition()) << endl;
-        	cout << "Mouse: " << ofToString(mouseX) << ", " << ofToString(mouseY) << endl;
+        	cout << "Mouse over: " << b->countryName << endl;
+        	countryInfo += b->countryName + " uses approximately " + ofToString(b->capacity * LBS_BAR) + "lbs of soap daily";
         }
     }
 
 	string info = "";
 	info += "Every day hotels worldwide replace the soap in their bathrooms.\n";
 	info += "The bars of soap below are proportional in area to the soup replaced by country.\n";
-	info += "Approximatively " + ofToString(WORLD_CAPACITY * LBS_BAR) + " lbs of soap used worldwide daily.";
+	info += "Approximatively " + ofToString(WORLD_CAPACITY * LBS_BAR) + " lbs of soap used worldwide daily.\n";
+	info += countryInfo;
 
 	ofSetHexColor(0xF1F1FD);
 	ofDrawBitmapString(info, 30, 30);
