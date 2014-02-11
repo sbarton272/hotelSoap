@@ -90,14 +90,14 @@ void testApp::draw(){
         	(normMouse.y >= 0) && (normMouse.y <= b->height) )  {
         	// mouse is pointing inside rect
         	cout << "Mouse over: " << b->countryName << endl;
-        	countryInfo += b->countryName + " uses approximately " + ofToString(b->capacity * LBS_BAR) + " lbs of soap daily";
+        	countryInfo += b->countryName + " uses approximately " + ofToString(b->capacity * LBS_BAR, 0) + " lbs of soap daily";
         }
     }
 
 	string info = "";
 	info += "Every day hotels worldwide replace the soap in their bathrooms.\n";
 	info += "The bars of soap below are proportional in area to the soup replaced by country.\n";
-	info += "Approximatively " + ofToString(WORLD_CAPACITY * LBS_BAR) + " lbs of soap used worldwide daily.\n";
+	info += "Approximatively " + ofToString(WORLD_CAPACITY * LBS_BAR, 0) + " lbs of soap used worldwide daily.\n";
 	info += countryInfo;
 
 	ofSetHexColor(0xF1F1FD);
