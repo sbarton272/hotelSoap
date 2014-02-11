@@ -17,7 +17,7 @@ public:
 
     void setup(b2World* world);
     void setPhysics(float density, float bounce, float friction);
-    void setTexture(ofImage * texture);
+    void setTexture(ofImage * tex);
     void draw();
 
 private:

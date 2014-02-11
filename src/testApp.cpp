@@ -30,6 +30,8 @@ void testApp::setup(){
 	// load soap image texture
 	texture.loadImage(TEXTURE_FILENAME);
 
+    cout << "Img at :" << ofToString(&texture)<< endl;
+
     // csv load and parse
 	csv.loadFile(ofToDataPath(DATA_FILENAME), CSV_SEPERATOR);
 
@@ -73,6 +75,7 @@ void testApp::draw(){
 
     ofSetColor(255,255,0);
     // testRect.get()->draw();
+    texture.draw(0,0);
 
 }
 
