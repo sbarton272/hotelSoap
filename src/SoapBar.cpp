@@ -29,10 +29,6 @@ void SoapBar::setup(b2World* world) {
     float w = ceil(GOLDEN_RATIO*l);
     float h = ceil(l/GOLDEN_RATIO);
 
-    cout << "in: " << ofToString(w) << ", " << ofToString(h) << endl;
-    cout << "in: " << ofToString(this->width) << ", " << ofToString(this->height) << endl;
-
-
     rect.get()->setup( world,x,y,w,h );
 
 }
@@ -45,7 +41,6 @@ void SoapBar::setPhysics(float density, float bounce, float friction) {
 //--------------------------------------------------------------
 void SoapBar::setTexture(ofImage * tex) {
     texture.clone(*tex);
-    cout << ofToString(this->width) << ", " << ofToString(this->height) << endl;
     texture.resize(width, height);
 }
 
@@ -55,8 +50,7 @@ void SoapBar::draw() {
     ofPushMatrix();
     ofTranslate(rect.get()->getPosition());
     ofRotate(rect.get()->getRotation());
-    rect.get()->draw();
-    texture.draw(0,0);
+    texture.draw( -width/2, -height/2);
     ofPopMatrix();
 
 

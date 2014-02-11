@@ -21,11 +21,6 @@ void testApp::setup(){
 	box2d.setFPS(30.0);
     box2d.registerGrabbing();
 
-    testRect = ofPtr<ofxBox2dRect>(new ofxBox2dRect());
-
-    testRect.get()->setPhysics(0.3, 0.5, 0.1);
-    testRect.get()->setup( box2d.getWorld(), ofRectangle(100,100,10,10) );
-
     generateEdges();
 
 	// load soap image widthtexture
@@ -62,8 +57,6 @@ void testApp::update(){
 
 	box2d.update();
 
-	//cout << ofToString(box2d.getBodyCount()) << endl;
-
 }
 
 //--------------------------------------------------------------
@@ -73,10 +66,6 @@ void testApp::draw(){
 	for (int i=0; i < soapBars.size(); i++) {
         soapBars[i].get()->draw();
     }
-
-    ofSetColor(255,255,0);
-    // testRect.get()->draw();
-    texture.draw(0,0);
 
 }
 
