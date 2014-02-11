@@ -21,16 +21,14 @@ void testApp::setup(){
 	box2d.setFPS(30.0);
     box2d.registerGrabbing();
 
-    testRect = ofPtr<ofxBox2dRect>(new ofxBox2dRect())
-
-    cout << ofToString(testRect::rect.get()->getWidth()) << ", "  << ofToString(testRect::rect.get()->getHeight()) << endl;
+    testRect = ofPtr<ofxBox2dRect>(new ofxBox2dRect());
 
     testRect.get()->setPhysics(0.3, 0.5, 0.1);
     testRect.get()->setup( box2d.getWorld(), ofRectangle(100,100,10,10) );
 
     generateEdges();
 
-	// load soap image texture
+	// load soap image widthtexture
 	texture.loadImage(TEXTURE_FILENAME);
 
     cout << "Img at :" << ofToString(&texture)<< endl;

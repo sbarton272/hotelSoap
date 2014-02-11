@@ -27,6 +27,8 @@ private:
     ofPtr<ofxBox2dRect> rect;
     string              countryName;
     float               capacity;
+    float				width;
+    float				height;
 
 
 };

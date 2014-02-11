@@ -8,6 +8,14 @@ SoapBar::SoapBar(string name, float cap) {
     countryName = name;
     capacity = cap;
     rect = ofPtr<ofxBox2dRect>(new ofxBox2dRect());
+
+    float l = SOAP_BAR_SIZE * sqrt( capacity / MAX_CAPACITY );
+    float w = ceil(GOLDEN_RATIO*l);
+    float h = ceil(l/GOLDEN_RATIO);
+
+    this->width = w;
+    this->height = h;
+
 }
 
 //--------------------------------------------------------------
@@ -21,29 +29,24 @@ void SoapBar::setup(b2World* world) {
     float w = ceil(GOLDEN_RATIO*l);
     float h = ceil(l/GOLDEN_RATIO);
 
-    cout << ofToString(w) << ", " << ofToString(h) << endl;
+    cout << "in: " << ofToString(w) << ", " << ofToString(h) << endl;
+    cout << "in: " << ofToString(this->width) << ", " << ofToString(this->height) << endl;
+
 
     rect.get()->setup( world,x,y,w,h );
-
-    cout << ofToString(rect.get()->getWidth()) << ", "  << ofToString(rect.get()->getHeight()) << endl;
 
 }
 
 //--------------------------------------------------------------
 void SoapBar::setPhysics(float density, float bounce, float friction) {
-    cout << ofToString(rect.get()->getWidth()) << ", "  << ofToString(rect.get()->getHeight()) << endl;
-
     rect.get()->setPhysics(density, bounce, friction);
-    cout << ofToString(rect.get()->getWidth()) << ", "  << ofToString(rect.get()->getHeight()) << endl;
 }
 
 //--------------------------------------------------------------
 void SoapBar::setTexture(ofImage * tex) {
     texture.clone(*tex);
-
-    cout << ofToString(rect.get()->getWidth()) << ", "  << ofToString(rect.get()->getHeight()) << endl;
-
-    texture.resize(rect.get()->getWidth(), rect.get()->getHeight());
+    cout << ofToString(this->width) << ", " << ofToString(this->height) << endl;
+    texture.resize(width, height);
 }
 
 //--------------------------------------------------------------
@@ -52,6 +55,7 @@ void SoapBar::draw() {
     ofPushMatrix();
     ofTranslate(rect.get()->getPosition());
     ofRotate(rect.get()->getRotation());
+    rect.get()->draw();
     texture.draw(0,0);
     ofPopMatrix();
 
